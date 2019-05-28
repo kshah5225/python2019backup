@@ -1,0 +1,27 @@
+# IPython log file
+
+%run 1.3.2/Shah_1.3.2.py
+%run 1.3.2/Shah_1.3.2.py
+hyp(3, 4)
+hyp(3,4)
+%run 1.3.2/Shah_1.3.2.py
+hyp(3,4)
+help(add_tip)
+hyp(3,4)
+%run 1.3.2/Shah_1.3.2.py
+hyp(3,4)
+%run 1.3.2/Shah_1.3.2.py
+hyp(3,4)
+hyp(3,4)
+hyp(3,4)
+%run 1.3.2/Shah_1.3.2.py
+hyp(3,4)
+%run 1.3.2/Shah_1.3.2.py
+hyp(3,4)
+#[Out]# 5.0
+23**43
+#[Out]# 35834136918934220777541995677272642015423987712183913488967L
+%run 1.3.2/Shah_1.3.2.py
+%run 1.3.2/Shah_1.3.2.py
+# Mon, 10 Dec 2018 20:19:53
+%run 1.3.2/Shah_1.3.2.py

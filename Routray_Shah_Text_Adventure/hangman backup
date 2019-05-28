@@ -1,0 +1,89 @@
+import random
+import sys
+print ('====================||Welcome to our Naruto Themed Hangman Game||=====================')
+def human_display(guessed, secret):#1. Human_display is defined with outputs
+    '''Checks what guessed letters have been inputed and outputs the parts of 
+    the secret which has been guessed and leaves unguesed characters as 
+    underscores. You need to enter a single string of guessed letters and then
+   separate the guess letters and the true secret word with a comma. The secret
+   also has to be a single string. Guessed is the letters guessed so far, and 
+   secret is the secret word or phrase'''
+    blockedword = ""
+    for letter in secret:
+        if letter == " ":
+            blockedword += " "
+        elif letter not in guessed:
+            blockedword += "_"
+        else:
+            blockedword += letter
+    return blockedword
+
+def Hangman():
+    '''doc string'''
+    print "Choose a Character"
+    print "Type 1 for Naruto"
+    print "Type 2 for sasuke"
+    game1 = raw_input('')
+    print(' ')
+    if game1 == '1':
+        print "Congratulations, You are Naruto Uzamaki, The leader of the village"
+        print "Your words are easier but you have less lives"
+        print "No guess the word by typing in letter"
+        print "Be careful you only have 9 lives"
+        list_of_words = ['Shinobi', 'Ninja', 'Belltest', 'Hokage', 'Village', 'Sage', 'Genin', 'Chunin', 
+    'Leaf', 'Sand', 'Rain', 'Land', 'Chakra', 'Ninetails', 'Eighttails', 'Seventails', 'Sixtails',
+    'Fivetails', 'Fourtails', 'Threetails', 'Twotails', 'Onetails', 'Jinchuriki', 'Rasengan', 
+    'Chidori', 'Sharingan', 'Sagemode', 'NinjaArt']
+        secret_choosen_word = random.choice(list_of_words)
+        guessed = ""
+        print (human_display(guessed, secret_choosen_word))
+    elif game1 == '2':
+        print "Congratulations, You are Sasuke Uchiha, The Strongest ninja in the village"
+        list_of_words = ['Shinobi', 'Ninja', 'Belltest', 'Hokage', 'Village', 'Sage', 'Genin', 'Chunin', 
+    'Leaf', 'Sand', 'Rain', 'Land', 'Chakra', 'Ninetails', 'Eighttails', 'Seventails', 'Sixtails',
+    'Fivetails', 'Fourtails', 'Threetails', 'Twotails', 'Onetails', 'Jinchuriki', 'Rasengan', 
+    'Chidori', 'Sharingan', 'Sagemode', 'NinjaArt']
+        secret_choosen_word = random.choice(list_of_words)
+        guessed = ""
+
+    guessed_string = ""
+    guesses_bin = 0
+    lives_left = 5
+    while lives_left > 0 and guesses_bin == 0:
+        '''This while loop shows that the '''
+        if str(secret_choosen_word) == str(human_display(guessed_string, secret_choosen_word)):
+            print('Congratulations YOU HAVE BECOME HOKAGE OF THE VILLAGE')
+            guesses_bin = 1
+            restartornot()
+        print ('Developer mode:', secret_choosen_word)
+        print (human_display(guessed_string, secret_choosen_word))
+        new_character = raw_input("")
+        old_guessed_string = guessed_string
+        if len(new_character) > 1:
+            print('you cannot type in multiple characters at a time')
+        elif str(secret_choosen_word) == str(human_display(guessed_string, secret_choosen_word)):
+            print('Congratulations YOU HAVE BECOME HOKAGE OF THE VILLAGE')
+            guesses_bin = 1
+            restartornot()
+        elif new_character in secret_choosen_word:
+            if new_character in old_guessed_string:
+                print('you already guessed that try another character:')
+            else:
+                print('correct, enter another character:')
+                guessed_string += new_character
+        else:
+            lives_left = lives_left - 1
+            print('wrong you have', lives_left ,' lives left')
+    if lives_left == 0:
+        print 'YOU LOST AND THE VILLAGE WAS DESTROYED!!'
+        restartornot()
+def restartornot():
+	'''prompts player wheather to restart or not,'''
+	print('''Type R to restart''')
+	restartornotvarraw = raw_input('')
+	restartornotvar = restartornotvarraw.lower()
+	if restartornotvar == 'r':
+	    Hangman()
+	else:
+	    sys.exit()
+Hangman()
